@@ -1,4 +1,4 @@
-// Using extra space
+// Using extra space i.e frequency
 
 #include <iostream>
 #include <vector>
@@ -18,7 +18,9 @@ void permutes(vector<int> &nums, vector<int> &temp, int freq[]){
         if(!freq[i]){
             freq[i] = 1;
             temp.push_back(nums[i]);
+
             permutes(nums, temp, freq);
+
             freq[i] = 0;
             temp.pop_back();
         }
@@ -61,8 +63,11 @@ void permutes(vector<int> &nums, int ind){
     }
     
     for(int i = ind; i < nums.size(); i++){
+
        swap(nums[ind] , nums[i]);
+
        permutes(nums, ind + 1);
+
        swap(nums[ind] , nums[i]);
     }
 }
